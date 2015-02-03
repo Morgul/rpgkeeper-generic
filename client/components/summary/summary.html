@@ -1,0 +1,89 @@
+<div id="summary">
+    <img class="img-thumbnail pull-left visible-md visible-lg" ng-attr-src="{{ base.portrait || 'http://placehold.it/800x1200' }}" width="300px" height="450px">
+    <div class="row stats-row">
+        <div class="col-sm-6">
+            <!-- Counters -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-bar-chart"></i> Counters</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><b>HP:</b> 102</span>
+                        <input type="number" class="form-control" placeholder="Number..." aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" title="Add to..."><i class="fa fa-plus"></i></button>
+                            <button class="btn btn-default" type="button" title="Subtract from..."><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-default" type="button" title="Set to..."><i class="fa fa-step-forward"></i></button>
+                        </span>
+                    </div>
+                    <div class="input-group" style="margin-top: 5px;">
+                        <span class="input-group-addon" id="basic-addon1"><b>HS:</b> 6</span>
+                        <input type="number" class="form-control" placeholder="Number..." aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" title="Add to..."><i class="fa fa-plus"></i></button>
+                            <button class="btn btn-default" type="button" title="Subtract from..."><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-default" type="button" title="Set to..."><i class="fa fa-step-forward"></i></button>
+                        </span>
+                    </div>
+                    <div class="input-group" style="margin-top: 5px;">
+                        <span class="input-group-addon" id="basic-addon1"><b>CP:</b> 10</span>
+                        <input type="number" class="form-control" placeholder="Number..." aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" title="Add to..."><i class="fa fa-plus"></i></button>
+                            <button class="btn btn-default" type="button" title="Subtract from..."><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-default" type="button" title="Set to..."><i class="fa fa-step-forward"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-shield"></i> Stats</h4>
+                </div>
+                <div class="panel-body">
+                    Stats here?
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!-- Rolls -->
+            <div class="panel panel-default" style="min-height: 445px">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-random"></i> Rolls</h4>
+                </div>
+                <div class="panel-body">
+                    Rolls here?
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default notes-panel">
+        <div class="panel-heading">
+            <h4 class="panel-title"><i class="fa fa-file-text-o"></i> Notes</h4>
+        </div>
+        <div class="panel-body">
+            <tabset class="tabs-left notes-tabs">
+                <tab>
+                    <tab-heading>
+                        <i class="fa fa-fw fa-bolt"></i> Quick Notes
+                    </tab-heading>
+                    <div class="form-group quick-notes">
+                        <textarea class="form-control"></textarea>
+                        <p class="help-block pull-right">
+                            This is auto-saved one second after you stop typing.
+                        </p>
+                    </div>
+                </tab>
+                <tab ng-repeat="page in char.notes | filter:{ favorite: true }">
+                    <tab-heading>
+                        <i class="fa fa-fw fa-file-text-o"></i> {{ page.name }}
+                    </tab-heading>
+                    <div ng-if="!editing" ng-bind-html="page.content | markdown"></div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>
