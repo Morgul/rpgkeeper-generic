@@ -84,6 +84,34 @@ router.put('/:charID', function(req, resp)
     } // end if
 });
 
+router.delete('/:charID', function(req, resp)
+{
+    if(req.isAuthenticated())
+    {
+        models.Character.get(req.params.charID)
+            .then(function(char)
+            {
+                return char.remove();
+            })
+            .then(function()
+            {
+                resp.end();
+            })
+            .catch(function(error)
+            {
+                resp.status(500).json({
+                    human: "Cannot delete character.",
+                    message: error.message,
+                    stack: error.stack
+                });
+            });
+    }
+    else
+    {
+        resp.status(403).end();
+    } // end if
+});
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
