@@ -44,7 +44,8 @@ module.exports = {
         '/systems/generic/components/character/character_resource.js',
         '/systems/generic/components/character/character_service.js',
         '/systems/generic/components/notes/notes.js',
-        '/systems/generic/components/notes/notes_service.js'
+        '/systems/generic/components/notes/notes_service.js',
+        '/systems/generic/components/counter/counter.js'
     ]
 }; // end exports
 

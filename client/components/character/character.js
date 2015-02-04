@@ -4,7 +4,7 @@
 // @module character.js
 // ---------------------------------------------------------------------------------------------------------------------
 
-function GenericCharacterController($scope, charSvc, baseSvc)
+function GenericCharacterController($scope, _, charSvc, baseSvc)
 {
     $scope.nav = 'summary';
     $scope.notfound = false;
@@ -22,12 +22,18 @@ function GenericCharacterController($scope, charSvc, baseSvc)
                 $scope.notfound = true;
             } // end if
         });
+
+    $scope.saveChar = _.debounce(function()
+    {
+        $scope.char.save();
+    }, 1000); // end if
 } // end CharacterController
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 angular.module('rpgkeeper').controller('GenericCharController', [
     '$scope',
+    'lodash',
     'GenericCharacterService',
     'BaseCharacterService',
     GenericCharacterController

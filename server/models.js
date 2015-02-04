@@ -19,9 +19,11 @@ var rootPath = path.join(__dirname, 'db');
 
 db.Character = jbase.defineModel('generic_characters', {
     baseChar: { type: String, required: true },
+    counters: { type: Array, default: [] },
     stats: { type: Array, default: [] },
     rolls: { type: Array, default: [] },
-    notes: { type: Array, default: [] }
+    notes: { type: Array, default: [] },
+    quickNotes: String
 }, { rootPath: rootPath, pk: 'baseChar' });
 
 //----------------------------------------------------------------------------------------------------------------------
