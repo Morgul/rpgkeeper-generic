@@ -20,10 +20,18 @@ module.exports = function(grunt)
                 }
             }
         },
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', 'ie 8', 'ie 9']
+            },
+            min: {
+                src: 'client/css/generic.min.css'
+            }
+        },
         watch: {
             less: {
                 files: ['<%= project.less %>'],
-                tasks: ['less'],
+                tasks: ['less', 'autoprefixer'],
                 options: {
                     atBegin: true
                 }
@@ -34,9 +42,10 @@ module.exports = function(grunt)
     // Grunt Tasks.
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
     // Setup the build task.
-    grunt.registerTask('build', ['less']);
+    grunt.registerTask('build', ['less', 'autoprefixer']);
 }; // module.exports
 
 // ---------------------------------------------------------------------------------------------------------------------
