@@ -31,6 +31,7 @@ function GenericCharacterResourceFactory($resource, _)
     function CharacterResource(id)
     {
         this.id = id;
+        this._statsObj = {};
 
         this.refresh();
     } // end CharacterResource
@@ -50,6 +51,7 @@ function GenericCharacterResourceFactory($resource, _)
 
         get favCounters(){ return _.filter(this.$resource.counters, { favorite: true }); },
         get favStats(){ return _.filter(this.$resource.stats, { favorite: true }); },
+        get statsObj(){ return _.reduce(this.$resource.stats, function(results, stat){ results[stat.name] = stat.value; return results; }, this._statsObj); },
 
         get resolved(){ return this.$resource.$resolved; },
         get promise(){ return this.$resource.$promise; }
@@ -60,6 +62,7 @@ function GenericCharacterResourceFactory($resource, _)
         var self = this;
         this.$resource = Character.get({ charID: this.id }, function()
             {
+                self._statsObj = {};
                 self.error = undefined;
             }, function(response)
             {
@@ -87,7 +90,7 @@ function GenericCharacterResourceFactory($resource, _)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper').factory('GenericCharacterResource', [
+angular.module('rpgkeeper.services').factory('GenericCharacterResource', [
     '$resource',
     'lodash',
     GenericCharacterResourceFactory

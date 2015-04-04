@@ -6,18 +6,18 @@
 
 var path = require('path');
 
-var jbase = require('jbase');
+var trivialdb = require('trivialdb');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var db = { errors: jbase.errors };
+var db = { errors: trivialdb.errors };
 var rootPath = path.join(__dirname, 'db');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Character Model
 //----------------------------------------------------------------------------------------------------------------------
 
-db.Character = jbase.defineModel('generic_characters', {
+db.Character = trivialdb.defineModel('generic_characters', {
     baseChar: { type: String, required: true },
     counters: { type: Array, default: [] },
     stats: { type: Array, default: [] },

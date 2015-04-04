@@ -46,7 +46,7 @@ function GenericCharacterServiceFactory($cacheFactory, $routeParams, CharResourc
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper').service('GenericCharacterService', [
+angular.module('rpgkeeper.services').service('GenericCharacterService', [
     '$cacheFactory',
     '$routeParams',
     'GenericCharacterResource',

@@ -19,7 +19,7 @@
                     <h4 class="panel-title"><i class="fa fa-shield"></i> Stats</h4>
                 </div>
                 <table class="table">
-                    <tr ng-if="$odd" ng-repeat="stat in char.stats">
+                    <tr ng-if="$even" ng-repeat="stat in char.stats">
                         <td><b>{{ stat.name }}:</b></td><td class="text-right">{{ stat.value }}</td>
                         <td><b>{{ char.stats[$index + 1].name }}:</b></td><td class="text-right">{{ char.stats[$index + 1].value }}</td>
                     </tr>
@@ -36,7 +36,7 @@
                     <h4 class="panel-title"><i class="fa fa-random"></i> Rolls</h4>
                 </div>
                 <div class="panel-body">
-                    Rolls here?
+                    <generic-roll name="roll.name" expression="roll.roll" context="char.statsObj" ng-repeat="roll in char.rolls"></generic-roll>
                 </div>
             </div>
         </div>

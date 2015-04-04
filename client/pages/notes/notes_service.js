@@ -30,7 +30,7 @@ function NoteServiceFactory(charSvc)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper').service('GenericNotesService', [
+angular.module('rpgkeeper.services').service('GenericNotesService', [
     'GenericCharacterService',
     NoteServiceFactory
 ]);

@@ -15,6 +15,7 @@ var logger = require('omega-logger').loggerFor(module);
 //----------------------------------------------------------------------------------------------------------------------
 
 var router = express.Router();
+var staticRoot = path.resolve(__dirname + '/client');
 
 //----------------------------------------------------------------------------------------------------------------------
 // System Router Setup
@@ -27,7 +28,7 @@ router.use(routeUtils.requestLogger(logger));
 router.use(routeUtils.errorLogger(logger));
 
 // Setup static serving
-router.use(express.static(path.resolve(__dirname + '/client')));
+router.use(express.static(staticRoot));
 
 // Sub routes
 router.use('/characters', charRoute);
@@ -39,14 +40,8 @@ module.exports = {
     id: "generic",
     description: "A generic system designed to be usable with any pen and paper RPG.",
     router: router,
-    scripts: [
-        '/systems/generic/components/character/character.js',
-        '/systems/generic/components/character/character_resource.js',
-        '/systems/generic/components/character/character_service.js',
-        '/systems/generic/components/notes/notes.js',
-        '/systems/generic/components/notes/notes_service.js',
-        '/systems/generic/components/counter/counter.js'
-    ]
+    staticRoot: staticRoot,
+    scripts: "client/**/*.js"
 }; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------
