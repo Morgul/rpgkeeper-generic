@@ -1,9 +1,9 @@
 <div id="summary">
-    <img class="img-thumbnail pull-left visible-md visible-lg" ng-attr-src="{{ base.portrait || 'http://placehold.it/800x1200' }}" width="300px" height="450px">
-    <div class="row stats-row">
-        <div class="col-sm-6">
+    <div class="stats-row">
+        <img class="img-thumbnail visible-md visible-lg" ng-attr-src="{{ base.portrait || 'http://placehold.it/800x1200' }}" width="300px" height="445px">
+        <div class="middle-column">
             <!-- Counters -->
-            <div class="panel panel-default">
+            <div id="summary-counters" class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title"><i class="fa fa-bar-chart"></i> Counters</h4>
                 </div>
@@ -14,30 +14,35 @@
             </div>
 
             <!-- Stats -->
-            <div class="panel panel-default">
+            <div id="summary-stats" class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title"><i class="fa fa-shield"></i> Stats</h4>
                 </div>
-                <table class="table">
+                <!--table class="table">
                     <tr ng-if="$even" ng-repeat="stat in char.stats">
-                        <td><b>{{ stat.name }}:</b></td><td class="text-right">{{ stat.value }}</td>
+                        <td><b>{{ stat.name }}:</b></td>
                         <td><b>{{ char.stats[$index + 1].name }}:</b></td><td class="text-right">{{ char.stats[$index + 1].value }}</td>
                     </tr>
-                </table>
-                <div ng-if="char.favStats.length == 0" class="panel-body">
-                    <h4 class="text-center" style="margin: 0">No Stats</h4>
+                </table-->
+                <div class="panel-body">
+                    <div ng-repeat="stat in char.stats">
+                        <b>{{ stat.name }}:</b>
+                        {{ stat.value }}
+                    </div>
+
+                    <!-- When we lack stats :( -->
+                    <h4 ng-if="char.favStats.length == 0" class="text-center">No Stats</h4>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <!-- Rolls -->
-            <div class="panel panel-default" style="min-height: 445px">
-                <div class="panel-heading">
-                    <h4 class="panel-title"><i class="fa fa-random"></i> Rolls</h4>
-                </div>
-                <div class="panel-body">
-                    <generic-roll name="roll.name" expression="roll.roll" context="char.statsObj" ng-repeat="roll in char.rolls"></generic-roll>
-                </div>
+
+        <!-- Rolls -->
+        <div id="summary-rolls" class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"><i class="fa fa-random"></i> Rolls</h4>
+            </div>
+            <div class="panel-body">
+                <generic-roll name="roll.name" expression="roll.roll" context="char.statsObj" ng-repeat="roll in char.rolls"></generic-roll>
             </div>
         </div>
     </div>

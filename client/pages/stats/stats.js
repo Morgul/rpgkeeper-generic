@@ -6,7 +6,16 @@
 
 function GenericStatsController($scope)
 {
-    console.log('sup?');
+    $scope.addStat = function()
+    {
+        $scope.char.stats.push({});
+    }; // end addStat
+
+    $scope.removeStat = function(index)
+    {
+        $scope.char.stats.splice(index, 1);
+        $scope.char.save();
+    }; // end removeStat
 } // end GenericStatsController
 
 // ---------------------------------------------------------------------------------------------------------------------
