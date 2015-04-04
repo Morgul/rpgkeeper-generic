@@ -66,7 +66,11 @@ router.put('/:charID', function(req, resp)
                 return character.save()
                     .then(function()
                     {
-                        resp.json(character);
+                        //FIXME: If we return the character, angular replaces the object, instead of updating, which
+                        // causes bound inputs to lose focus. Weird, huh?
+                        //resp.json(character);
+
+                        resp.end();
                     });
             })
             .catch(function(error)
