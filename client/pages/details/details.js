@@ -1,10 +1,10 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// GenericStatsController
+// GenericDetailsController
 //
 // @module stats.js
 // ---------------------------------------------------------------------------------------------------------------------
 
-function GenericStatsController($scope)
+function GenericDetailsController($scope)
 {
     $scope.addStat = function()
     {
@@ -16,13 +16,13 @@ function GenericStatsController($scope)
         $scope.char.stats.splice(index, 1);
         $scope.char.save();
     }; // end removeStat
-} // end GenericStatsController
+} // end GenericDetailsController
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.controllers').controller('GenericStatsController', [
+angular.module('rpgkeeper.controllers').controller('GenericDetailsController', [
     '$scope',
-    GenericStatsController
+    GenericDetailsController
 ]);
 
 // ---------------------------------------------------------------------------------------------------------------------
