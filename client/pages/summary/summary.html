@@ -8,7 +8,7 @@
                     <h4 class="panel-title"><i class="fa fa-shield"></i> Stats</h4>
                 </div>
                 <div class="panel-body">
-                    <div ng-repeat="stat in char.stats">
+                    <div ng-repeat="stat in char.favStats">
                         <b>{{ stat.name }}:</b>
                         {{ stat.value }}
                     </div>
@@ -36,7 +36,7 @@
                 <h4 class="panel-title"><i class="fa fa-random"></i> Rolls</h4>
             </div>
             <div class="panel-body">
-                <generic-roll name="roll.name" expression="roll.roll" context="char.statsObj" ng-repeat="roll in char.rolls"></generic-roll>
+                <generic-roll name="roll.name" expression="roll.roll" context="char.statsObj" ng-repeat="roll in char.favRolls"></generic-roll>
             </div>
         </div>
     </div>

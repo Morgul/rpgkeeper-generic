@@ -51,6 +51,7 @@ function GenericCharacterResourceFactory($resource, _)
 
         get favCounters(){ return _.filter(this.$resource.counters, { favorite: true }); },
         get favStats(){ return _.filter(this.$resource.stats, { favorite: true }); },
+        get favRolls(){ return _.filter(this.$resource.rolls, { favorite: true }); },
         get statsObj(){ return _.reduce(this.$resource.stats, function(results, stat){ results[stat.name] = stat.value; return results; }, this._statsObj); },
 
         get resolved(){ return this.$resource.$resolved; },

@@ -6,6 +6,19 @@
 
 function GenericDetailsController($scope)
 {
+
+    $scope.$watch('editMode', function()
+    {
+        if($scope.editMode)
+        {
+            $scope.template = 'detailsEdit.html';
+        }
+        else
+        {
+            $scope.template = 'detailsDisplay.html';
+        } // end if
+    });
+
     // -----------------------------------------------------------------------------------------------------------------
     // Stats
     // -----------------------------------------------------------------------------------------------------------------
