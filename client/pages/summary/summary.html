@@ -2,28 +2,11 @@
     <div class="stats-row">
         <img class="img-thumbnail visible-md visible-lg" ng-attr-src="{{ base.portrait || 'http://placehold.it/800x1200' }}" width="300px" height="445px">
         <div class="middle-column">
-            <!-- Counters -->
-            <div id="summary-counters" class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title"><i class="fa fa-bar-chart"></i> Counters</h4>
-                </div>
-                <div class="panel-body">
-                    <generic-counter counter="counter" change="saveChar" ng-repeat="counter in char.favCounters"></generic-counter>
-                    <h4 ng-if="char.favCounters.length == 0" class="text-center" style="margin: 0">No Counters</h4>
-                </div>
-            </div>
-
             <!-- Stats -->
             <div id="summary-stats" class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title"><i class="fa fa-shield"></i> Stats</h4>
                 </div>
-                <!--table class="table">
-                    <tr ng-if="$even" ng-repeat="stat in char.stats">
-                        <td><b>{{ stat.name }}:</b></td>
-                        <td><b>{{ char.stats[$index + 1].name }}:</b></td><td class="text-right">{{ char.stats[$index + 1].value }}</td>
-                    </tr>
-                </table-->
                 <div class="panel-body">
                     <div ng-repeat="stat in char.stats">
                         <b>{{ stat.name }}:</b>
@@ -32,6 +15,17 @@
 
                     <!-- When we lack stats :( -->
                     <h4 ng-if="char.favStats.length == 0" class="text-center">No Stats</h4>
+                </div>
+            </div>
+
+            <!-- Counters -->
+            <div id="summary-counters" class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-bar-chart"></i> Counters</h4>
+                </div>
+                <div class="panel-body">
+                    <generic-counter counter="counter" change="saveChar" ng-repeat="counter in char.favCounters"></generic-counter>
+                    <h4 ng-if="char.favCounters.length == 0" class="text-center" style="margin: 0">No Counters</h4>
                 </div>
             </div>
         </div>
