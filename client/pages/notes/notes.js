@@ -133,7 +133,7 @@ function NotesController($scope, $timeout, _)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.controllers').controller('GenericNotesController', [
+angular.module('generic.controllers').controller('GenericNotesController', [
     '$scope',
     '$timeout',
     'lodash',

@@ -41,7 +41,7 @@ module.exports = {
     description: "A generic system designed to be usable with any pen and paper RPG.",
     router: router,
     staticRoot: staticRoot,
-    scripts: "client/**/*.js"
+    scripts: ["client/modules.js", "client/**/*.js"]
 }; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------

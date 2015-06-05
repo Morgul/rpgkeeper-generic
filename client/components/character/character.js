@@ -31,7 +31,7 @@ function GenericCharacterController($scope, _, charSvc, baseSvc)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.controllers').controller('GenericCharController', [
+angular.module('generic.components').controller('GenericCharController', [
     '$scope',
     'lodash',
     'GenericCharacterService',

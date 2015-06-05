@@ -69,7 +69,7 @@ function GenericDetailsController($scope)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.controllers').controller('GenericDetailsController', [
+angular.module('generic.controllers').controller('GenericDetailsController', [
     '$scope',
     GenericDetailsController
 ]);

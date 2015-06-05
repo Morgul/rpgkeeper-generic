@@ -49,6 +49,6 @@ function GenericCounterFactory()
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.directives').directive('genericCounter', [GenericCounterFactory]);
+angular.module('generic.components').directive('genericCounter', [GenericCounterFactory]);
 
 // ---------------------------------------------------------------------------------------------------------------------

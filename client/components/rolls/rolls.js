@@ -40,7 +40,7 @@ function GenericRollsDirectiveFactory(diceSvc)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.directives').directive('genericRoll', [
+angular.module('generic.components').directive('genericRoll', [
     'DiceService',
     GenericRollsDirectiveFactory
 ]);

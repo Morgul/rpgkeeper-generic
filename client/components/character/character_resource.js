@@ -91,7 +91,7 @@ function GenericCharacterResourceFactory($resource, _)
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper.services').factory('GenericCharacterResource', [
+angular.module('generic.components').factory('GenericCharacterResource', [
     '$resource',
     'lodash',
     GenericCharacterResourceFactory
