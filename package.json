@@ -1,6 +1,6 @@
 {
   "name": "rpgkeeper-generic",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "A generic system for RPGKeeper designed to be usable with any pen and paper RPG.",
   "main": "system.js",
   "scripts": {
